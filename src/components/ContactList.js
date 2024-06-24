@@ -37,12 +37,16 @@ export default function ContactList() {
    function handleSaveContact(newContact) {
       setContacts((contacts) => [...contacts, newContact]);
    }
+   function handleDeleteContact(id) {
+      setContacts((contacts) => contacts.filter(contact => contact.id !== id));
+   }
+   
 
    return (
       <div className="contact-list" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", alignItems: "center", gap: "1rem" }}>
          <div>
             <h1 className="title">contact list</h1>
-            <Items contacts={contacts} />
+            <Items contacts={contacts} onDeleteContact={handleDeleteContact} />
             <button type="button" className="button add-btn" onClick={handleAddContact}>
                Add Contact
             </button>
