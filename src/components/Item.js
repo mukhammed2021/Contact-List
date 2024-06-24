@@ -10,7 +10,7 @@ export default function Item({ contactObj }) {
             <img src={contactObj.image} alt={contactObj.name} />
          </div>
          <div className="info">
-            <div className="name">{contactObj.firstName}</div>
+            <div className="name">{contactObj.firstName + " " + contactObj.lastName}</div>
             <a href={"tel:" + contactObj.phone} className="phone">
                {phoneNumberFormat}
             </a>
