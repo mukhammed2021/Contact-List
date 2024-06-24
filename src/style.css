@@ -114,10 +114,29 @@ button {
    transition: width 0.3s;
 }
 
-.settings {}
+.settings {
+   position: relative;
+}
 
-.settings svg {
+.settings__button svg {
    fill: var(--color-zinc-500);
+}
+
+.configure {
+   background-color: var(--color-zinc-400);
+   position: absolute;
+   right: 1.5rem;
+   top: 0.5rem;
+   width: 90px;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   border-radius: 0.5rem;
+}
+
+.configure__btn {
+   padding: 5px 10px;
+   transition: color 0.3s;
 }
 
 .button {
@@ -191,5 +210,9 @@ button {
 
    .cancel-btn:hover {
       background-color: var(--color-red-700);
+   }
+
+   .configure__btn:hover {
+      color: var(--color-zinc-50);
    }
 }
