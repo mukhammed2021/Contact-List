@@ -6,21 +6,21 @@ const initialContacts = [
       firstName: "Damir",
       lastName: "Latfullin",
       image: "https://i.pravatar.cc/48?u=118836",
-      phone: "+77752874657",
+      phone: "+77712345678",
    },
    {
       id: 2,
       firstName: "Aybek",
       lastName: "Rakhmet",
       image: "https://i.pravatar.cc/48?u=933372",
-      phone: "+77077486979",
+      phone: "+70712345678",
    },
    {
       id: 3,
       firstName: "Dimash",
       lastName: "Rakishev",
       image: "https://i.pravatar.cc/48?u=499476",
-      phone: "+77774743724",
+      phone: "+77012645690",
    },
 ];
 
