@@ -14,6 +14,9 @@
    --color-zinc-950: #09090b;
 
    --color-green-600: #16a34a;
+   --color-green-700: #15803d;
+   --color-red-600: #dc2626;
+   --color-red-700: #b91c1c;
 }
 
 body {
@@ -34,13 +37,14 @@ button {
 }
 
 .contact-list {
-   max-width: 400px;
+   max-width: 800px;
    margin-inline: auto;
 }
 
 .title {
    text-transform: uppercase;
    font-size: 1.25rem;
+   color: var(--color-zinc-700);
 }
 
 .title:not(:last-child) {
@@ -50,6 +54,10 @@ button {
 .items {
    display: grid;
    gap: 1rem;
+}
+
+.items:not(:last-child) {
+   margin-bottom: 1rem;
 }
 
 .item {
@@ -112,6 +120,58 @@ button {
    fill: var(--color-zinc-500);
 }
 
+.button {
+   font-weight: 500;
+   padding: .625rem .9375rem;
+   border-radius: .625rem;
+   transition: background-color 0.3s;
+   color: var(--color-zinc-50);
+}
+
+.add-btn {
+   background-color: var(--color-zinc-600);
+}
+
+.save-btn {
+   background-color: var(--color-green-600);
+}
+
+.cancel-btn {
+   background-color: var(--color-red-600);
+}
+
+.add-title {
+   color: var(--color-zinc-700);
+   font-size: 1.2rem;
+}
+
+.add-title:not(:last-child) {
+   margin-bottom: 1rem;
+}
+
+.form__items {
+   display: grid;
+   gap: 1rem;
+}
+.form__item {
+
+}
+
+.form__label {
+   display: block;
+}
+
+.form__input {
+   width: 100%;
+   padding: 0.2rem 0.5rem;
+}
+
+.form__actions {
+   display: flex;
+   align-items: center;
+   gap: 1rem;
+}
+
 @media(any-hover: hover) {
    .phone:hover {
       color: var(--color-green-600);
@@ -119,5 +179,17 @@ button {
 
    .phone:hover::before {
       width: 100%;
+   }
+
+   .add-btn:hover {
+      background-color: var(--color-zinc-700);
+   }
+
+   .save-btn:hover {
+      background-color: var(--color-green-700);
+   }
+
+   .cancel-btn:hover {
+      background-color: var(--color-red-700);
    }
 }
