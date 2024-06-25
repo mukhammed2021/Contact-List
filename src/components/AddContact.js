@@ -9,24 +9,24 @@ export default function AddContact({ addContact, onSaveContact, cancel, onAddCon
    function handleSubmit(e) {
       e.preventDefault();
 
-      if (!firstName || !lastName || !phoneNumber) return;
+      if (firstName.trim() && lastName.trim() && phoneNumber.trim()) {
+         const id = crypto.randomUUID();
+         const newContact = {
+            id,
+            firstName,
+            lastName,
+            image: `${avatar}?=${id}`,
+            phone: phoneNumber,
+         };
 
-      const id = crypto.randomUUID();
-      const newContact = {
-         id,
-         firstName,
-         lastName,
-         image: `${avatar}?=${id}`,
-         phone: phoneNumber,
-      };
+         onSaveContact(newContact);
 
-      onSaveContact(newContact);
+         setFirstName("");
+         setLastName("");
+         setPhoneNumber("");
 
-      setFirstName("");
-      setLastName("");
-      setPhoneNumber("");
-
-      onAddContact(false);
+         onAddContact(false);
+      }
    }
 
    return (
