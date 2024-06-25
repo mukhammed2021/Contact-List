@@ -2,6 +2,7 @@ import "../style.css";
 import Items from "./Items";
 import AddContact from "./AddContact";
 import { useState } from "react";
+import EditContact from "./EditContact";
 
 const initialContacts = [
    {
@@ -30,6 +31,7 @@ const initialContacts = [
 export default function ContactList() {
    const [addContact, setAddContact] = useState(false);
    const [contacts, setContacts] = useState(initialContacts);
+   const [contact, setContact] = useState({});
 
    function handleAddContact() {
       setAddContact((addContact) => !addContact);
@@ -38,15 +40,25 @@ export default function ContactList() {
       setContacts((contacts) => [...contacts, newContact]);
    }
    function handleDeleteContact(id) {
-      setContacts((contacts) => contacts.filter(contact => contact.id !== id));
+      setContacts((contacts) => contacts.filter((contact) => contact.id !== id));
    }
-   
+   function handleEditContact(contact) {
+      setContact(contact);
+   }
 
    return (
-      <div className="contact-list" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", alignItems: "center", gap: "1rem" }}>
+      <div
+         className="contact-list"
+         style={{ display: "grid", gridTemplateColumns: "1fr 1fr", alignItems: "center", gap: "1rem" }}
+      >
          <div>
             <h1 className="title">contact list</h1>
-            <Items contacts={contacts} onDeleteContact={handleDeleteContact} />
+            <Items
+               contacts={contacts}
+               onDeleteContact={handleDeleteContact}
+               onEditContact={handleEditContact}
+               onContact={setContact}
+            />
             <button type="button" className="button add-btn" onClick={handleAddContact}>
                Add Contact
             </button>
@@ -57,6 +69,7 @@ export default function ContactList() {
             cancel={handleAddContact}
             onAddContact={setAddContact}
          />
+         <EditContact editContact={contact} />
       </div>
    );
 }
